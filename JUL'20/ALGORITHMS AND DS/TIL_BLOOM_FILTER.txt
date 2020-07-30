@@ -1,0 +1,31 @@
+30/07/2020 11:15;
+
+What is it:
+it answers, does an element belongs to a particular set.
+
+Prerequisites:
+	- size of the bloom filter? say m = 5;
+	
+	- Then we define few hash functions
+		say	h1(x) = x mod 5  
+			h2(x) = (2x + 3) mod 5
+		
+	- When we insert an element (e)
+	- then calculte h1(e), h2(e) 
+	
+	- We take a bloom filter array of size t A[t], 
+		say A[5]
+	
+	- depending upon the h1(e) = l and h2(e) = 
+	
+	
+Flase positive (Yes)
+	- if answer is positive, then it might be present (not sure)
+	- Bloom is false positive
+	
+False negative (No)
+	- Bloom filter is not false negative
+		- if answer is not present then it surely not present.
+
+Sources
+https://www.youtube.com/watch?v=5geaRjUZ3Ck

@@ -1,0 +1,94 @@
+* Sychronization
+	- if a threads calls a method or a block which is synchronized it acquires an intrinsic lock (monitor)
+	- other threads are blocked until the thread is released
+	
+	Disadvantages
+		- Deadlocks causing
+		- Starvation : some thread can not get the resource when competing 
+		- less throughput
+		
+
+Package : java.util.concurrent
+1. Units of execution	
+	- Process
+		- private memory space (not shared)
+		- an application is a single process
+		- jvm creates a single process but we can create different process using process builder (Multiprocess Application (1))
+	- Threads
+		- takes less resources as creating a new process
+			- say shared memory spaces and open files
+			- Every process has atleast one thread
+			- single thread is main thread that has ability to create more threads.
+2. Thread object (https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html)
+	- Since JDK 1.0
+	- in java each thread is associated with an object of the Thread class.
+	- ways 
+		- direct control live cycle, instantiating the thread each time async is needed.
+		- abstract the thread management through executor.
+	- java.lang.Thread extends java.lang.Object implements runnable.
+ 	- execution continues till
+		- runtime exit (2) call.
+		- all the non deamon thread has returned after execution.
+	- creation
+		- extends thread class and overrides the run method
+		- implementing runnable and implements the run method
+			- then pass the runnable obj instance to a thread constructor as a parameter and summon the start()
+
+3. Define and start
+	- Runnable interface
+		- @Functional interfaces as only run method is there.
+		- JDK 1.0
+		- more flexible
+	- Thread class
+		- for simple and light weight application as it is more simple
+		- it has several methods including the static ones
+4. Pausing a thread
+	- Thread.sleep
+	- gives another thread a chance
+	- static void sleep (calls the native method) and static native void sleep (can throw illegal argument exception)
+	- causes InterruptedException when another thread interrupts when the thread is sleep;
+5. Interrupts
+	- A thread call the interrupt on the Thread object to be interrupted.
+		- throws Security exception when the thread cannot be interrupted..
+		- interrupted resets the thread status
+		- isInterrupted used by another thread to get the status of the thread. does not resets the thread.
+	- means to stop whatever it is doing and do something else
+	- methods that throws this exception do so to immediately return when the interupt is received;
+	- Thread.interrupted() checks whether the thread is interrupted.
+6. join
+	- causes the current thread to wait untill the mentioned thread is completed execution
+		- t.join -> called thread will wait for thread T to complete
+	- can be interrupted like join
+	- overloaded join() can be used to specify the time 
+
+7. Synchronization
+
+It is a framework that helps us with 
+1. Thread Creation	
+	helps in creating threads and pools
+2. Thread Management
+	you dont have to worried about the thread in a pool for submitting a task execution
+3. Task execution
+	excetion can be instant, delayed or periodic
+
+Java Concurrency API.
+
+Three major executor interfaces:
+	- Executor	
+		execute() method that launch the task specified by the runnable object. 
+	- Executor Service 
+		- extends Executor
+		- adds functionality to manage the life cycle.
+		- contains a submit() method, that takes runnable and callable (overloaded method).
+		
+	- Scheduled Executor Service
+		- extends ExecutorService
+		- functionality to execute a scheduled activity.
+
+
+Sources
+https://docs.oracle.com/javase/tutorial/essential/concurrency/
+https://docs.oracle.com/javase/tutorial/essential/concurrency/highlevel.html
+to Read:
+Multiprocess Application (1)
+runtime exit (2)

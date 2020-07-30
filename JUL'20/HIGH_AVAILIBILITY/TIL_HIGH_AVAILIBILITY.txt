@@ -1,0 +1,94 @@
+High Availibility (HA): 
+- degree to which system is accessible on demand
+- system should quickly recovers from failure.
+
+
+How to achieve HA 
+- Eliminate single point of failure.
+- Backed UP for single recovery.
+- Load Balancing => HAProxy
+- monitor server
+- auto failure detection
+- cross over/ failover in case of failure RAID/ Storage area network
+- Design and test for HA before 
+
+
+Ensure N+1, N+2, 2N, 2N+1 Strategies;
+
+DB Side:
+Main features of HA
+	- RELIABILITY
+	- RECOVERABILITY
+	- ERROR DETECTION
+	- 
+
+Transaction log: 
+	- Every database has a log file that is separate from the data file [INFO NEEDED] 
+	- records all the database modifications.
+	- transaction log is split up into small chunks called virtual log files
+	
+	- Due to HA requirements, it is one of the most important aspect of replication, mirroring or log shipping
+		/ mirroring : 
+			* when data is modified DML, mirroring need to create it on the secondry location as early as possible 
+			* can choose between synchronized and asychronized.
+		/ Transactional Replication [What else?? INFO NEEDED] :
+			* logs only the committed changes
+			* works at logical level
+		/ log shipping:[INFO NEEDED]
+			* back up the transaction log and shipping to another server and restoring the transferred log
+	- 	
+
+Load balancing, HAProxy:
+	/ Software load balancer.
+	/ Terminology:
+		- ACL - Used to test some condition and perform some action. allowed flexible network traffic forwarding 
+		- Backend 
+			- Set of servers that receives the forwarded requesrs. 
+			- Which basically contain 
+				* load balancing algorithms 
+				* servers and ports
+		- Frontend
+			- How to forward request to backend
+			- components
+				* set of IP address and ports
+				* ACL
+				* use_backend rules : which defines which backend to use 
+	/ Types of load balancing:
+		- No Load Balancing : 
+			* single server goes down, whole application crashes.
+			* increase in number of user will slow down the experience.
+		- Layer 4 Load Balancing - transport layer load balancing
+			* Load balancing at transport layer. [MORE INFO NEEDED]
+		- Layer 7 Load Balancing - application layer load balancing 
+			* 
+	/ Types of algorithms
+		- Round Robin Algorithms
+			* Default: will choose server one-by-one.
+		- leastconn
+			* Selects a server with least number of connection
+			* Server in the same backend rotate in RR fashion
+		- Source
+			* IP address to hash and based on the hash value forward it to the node
+	/ Sticky Sessions
+		- application user should continue to connect to the same backend 
+		- "appsession" parameter in the backend.
+	/ Health check
+		- HA proxy performs a simple health check (TCP request to the server on the port).
+			* if failed : removed automatically untill its healthy again
+			* Not sufficient for DB servers 
+	/ Alternatives
+		- Linux Vitual Servers :
+			* Simple Layer 4 LB is included in most of the distribution.
+		- Ngnix : 
+			* a web server that can be also be used for proxy and load balancing
+			* used for its caching and compression capabilities 
+	/ High Availibility
+		- as a HA architecture must not have single point of failure
+		- In a single load balancer, if may requests come at the same point, it may slow down the system 
+		- so we can use redundant load balancers using floating IPs
+		- in case primary LB fails, Floating IP is assigned to another load balancer.
+SOURCES
+	- https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts
+	- 
+	
+Application Clustering: 
