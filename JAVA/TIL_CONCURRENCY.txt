@@ -1,3 +1,7 @@
+Why threads
+	- easiest eay to tap the features of multiprocessor computing environment
+
+
 * Sychronization
 	- if a threads calls a method or a block which is synchronized it acquires an intrinsic lock (monitor)
 	- other threads are blocked until the thread is released
@@ -62,6 +66,31 @@ Package : java.util.concurrent
 	- overloaded join() can be used to specify the time 
 
 7. Synchronization
+	- Threads communicate through the Fields and Object Reference which a field refers to 
+	- main problem with communication is 
+		- thread interference
+			- when multiple threads shares the same data
+		- memory consistency errors
+			- inconsistent views of shared memory
+			- beyond the scope
+			- scenario (#01)
+				- main thread starts a bg thread
+				- bg thread has logic increases the counter until a global variable bool is set to false
+				- main thread sleeps for some time
+				- main thread updates the shared var 
+				- but the local copy made by the core of processer maynot be updated by the main thread hence the inconsistency
+			- happens-before relationship
+				- if operations have happens-before relationship then one happens before and ordered before the other and are consistent
+				- Thread.start
+				- Thread.join
+	- Synchrinization solves the problem
+		- Synchronized Method
+			- constructor cannot be synchronized
+			- 
+		- Synchronized Statements
+	- but contention with synchronization
+		- livelock
+		- starvation
 
 It is a framework that helps us with 
 1. Thread Creation	
@@ -89,6 +118,7 @@ Three major executor interfaces:
 Sources
 https://docs.oracle.com/javase/tutorial/essential/concurrency/
 https://docs.oracle.com/javase/tutorial/essential/concurrency/highlevel.html
+https://medium.com/@kasunpdh/handling-java-memory-consistency-with-happens-before-relationship-95ddc837ab13 (#01)
 to Read:
 Multiprocess Application (1)
 runtime exit (2)
