@@ -1,0 +1,2 @@
+- Get to know the execution path/plan	
+	- on select, delete, update
