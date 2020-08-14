@@ -1,0 +1,48 @@
+- CREATE
+	CREATE INDEX <TABLENAME_COLUMNNAME_I> ON <TABLE_NAME>(<COLUMN, COLUMN ...>);
+- Oracle already creates an index for primary key at the time of table creation.
+- default is btree index
+
+- there is a view called 'all_indexes' from which we can get the index list of our tables.
+
+- check whether the query uses the index or not using 
+	EXPLAIN PLAN FOR <QUERY>
+	
+- removing and index
+	DROP INDEX <index_name>
+
+- UNIQUE Index	
+	- No two rows of the table has duplicate values in the index columns
+	- CREATE UNIQUE INDEX <NAME> ON <TABLE NAME>(<COLUMN NAME>)
+	- In case of UNIQUE and PRIMARY KEY this index is created by default
+	
+- Function Based Index
+	- Oracle can not use the index when using a method
+		- like if we indexed a column named T1.C1 then 
+			- SELECT * FROM T1 WHERE C1 = 'condition'
+				index will be used
+			- SELECT * FROM T1 WHERE UPPER(C1) = 'condition'
+				- index will not be used 
+				- CREATE INDEX <INDEX_NAME> ON <TABLE_NAME>(UPPER(COLUMN_NAME)))
+				- called function based index
+	- Advantages
+		- index range scan > full index scan
+			- index range scan is faster when the result is fewer than 15% of the large table.
+		- Reduced the computation at the database
+	- disadvantages
+		- modification leads to computation of index - write penalty
+		- function should be Determinitic, produces same input for same output everytime
+		- cost based optimization over rule based optimization
+
+- Bitmap index
+	- columns such has gender has fixed set of values M,F,T it is said the such columns has low cardinality
+	- bitmap index are for such columns 
+	- uses bitmaps or bit array
+	- mapping function to convert each bit to bitmap to corresponding row_id
+	- CREATE BITMAP INDEX <NAME> ON TABLE_NAME (COLUMNS)
+	- any columns that has less then 100 distinct values
+	- Disadvantages
+		- maintaing bitmap values takes a lot of resources 
+			- used in read only env
+			- like data warehouses
+		- concurrent single row update can create a deadlock

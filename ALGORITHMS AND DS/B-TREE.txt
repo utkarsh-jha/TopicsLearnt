@@ -1,0 +1,79 @@
+- Self Balancing Tree
+	- Height Balanced Binary Search Trees 
+	- keeps the heights inb Log n
+	- so average time should be O(Log n)
+- For large amount of data that cannot fit in the main memory
+- disk acess time is high, so b-tree helps in minimizing disk access
+- is fat tree
+- Search, insert, delete O(Log n)
+
+- aka balanced m-way tree 
+- BST generalization i.e tree can have  
+	- more than one key 
+	- more than 2 children
+- Data is sorted
+- leaf node is at same level
+
+- B-Trees of order m (the maximum number of children) have the following properties:
+    each node has at most m children
+    each internal node has at least C(m/2) children
+    root has at least two children if it is not a leaf
+    a non-leaf node with k children has k -1 keys
+    all leaves must appear at the same level
+--------------------------------------------------------------------------------------------
+- Disc Structures
+	- has logical cirlces called tracks
+	- devided into multiple part as sectors
+	- intersection of tracks and the sector is called block
+	- block address = track no, sector no
+	- block is of certain size say 512 byte
+	- each byte of a block will have its own address which is called offset
+	- to reach a byte in a block, track no, sector no, and offset no
+	- spinning sectors are changed by head tracks are chnaged
+	
+- Organizing data in the main memory is called data strucutres
+- organzing data in the disk is dbms
+
+- indexes: stores the index and pointer to the index on the disk
+	- so comparitively less blocks are traversed to get the index values
+
+- multilevel index (sparse index) : 
+	- reduce the number of block searched
+	- we can keep on adding indexes
+	
+- m-way search tree
+	- multiple keys 
+	- BST is a m-way tree of degree 2
+	- m way means m children, m-1 keys
+	- creation process has no guideline
+
+- B-trees
+	- has guidelines over m-way search trees
+	- filled upwards
+		Btree with 4 way, (10,20,30,40,50)
+		{
+			Insert 10
+			[10|  |  ]
+			Insert 20
+			[10|20|  ]
+			Insert 30
+			[10|20|30]
+			Insert 40
+				Limit is reached
+				Split
+				   [||30||  ||  ]
+				   /    |
+		[10||20|| ]  [40|| || ]
+	
+	- Self managed multilevel indexes : concept of b tree and b+ tree
+	- trees are created upwards
+
+B+ trees
+	- every key is present at the leaf nodes and leaf nodes are connected as a linked list 
+	- dense index
+	
+MISC		
+- degree of the tree
+	- highest degree of nodes amongst all the node
+- degree of the node
+	- total no of children of that node.
