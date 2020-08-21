@@ -1,0 +1,120 @@
+
+- Trees are hierarchical DS that contains node connected by edges.
+- why trees
+	- stacks, queues, arrays, linkedlist are linear
+		- time complexity increases with increase in the size of the data set.
+	
+- Terminologies
+	- Node
+		- contains a key/value.
+		- contains a pointer to other(child) nodes.
+		- internal node = atleast one children.
+	- Edge
+	- height 
+		- node
+			- no. of edges from node to deepest leaf
+		- tree
+			- no. of edges from the lead node to the deepest leaf.
+	- depth of a node
+		- no. of edges from root node to the node
+	- degree of a node
+		- total no. of branches of that node
+	- Forest
+		no of disjoint trees 
+
+- features
+	- moderate access/search time(>array, <linked list);
+	- not size bound
+	- moderate insertion deletion (quicker than array, slower than unordered linked list)
+- application
+	- heiarchical data
+	- search
+	- manipulate sorted list
+- Binary Tree
+	- Full binary tree
+		- every node has '0 or 2' child node
+	- complete binary tree
+		- all levels are filled except for the last level in which the elements are as left as possible
+	- perfect
+		- all leaf node are at the same level
+	- degenerate 
+		- every internal node has 1 child
+- Traversal
+	- linear : one way to read data.
+	- trees
+		- Depth First Search Traversal
+			- inorder
+				- logic
+					- recursive
+						- inorder(root->left)
+						- display(root->data)
+						- inorder(root->right)
+					- iterative
+						- w stack
+							{
+								Stack<TreeNode> stack = new Stack<>();
+								TreeNode current = root;
+								while(current != null || !stack.empty()){
+									while(current!=null){
+										stack.push(current);
+										current = current.left;
+									}
+									current = stack.pop();
+									sout(current.value);
+									current = current.right;
+								}
+							}
+						- w/o stack - Morris traversal
+							
+				- uses 
+					- print the tree in increasing order
+				
+			- preorder
+				- logic
+					- recursive
+						- display(root->data)
+						- preorder(root->left)
+						- preorder(root->right)
+					- iterative
+						- w stack
+							{
+								stack s = new Stack();
+								c = root;
+								
+								while(c!=null || !s.empty()){
+									while(c!=null){
+										sout(c.value);
+										s.push(c)
+										c = c.left;
+									}
+									c = s.pop();
+									s = c.right();
+								}
+							}
+			- postorder
+				- logic
+					- recursive
+						- postorder(root->left)
+						- postorder(root->right)
+						- display(root->data)
+					- iterative
+						- w 2 stack
+							{
+								Stack<> s = new Stack<>(), o = new Stack<>();
+								s.push(root);
+								while(!s.empty()){
+									TreeNode t = s.pop();
+									o.push(t);
+									if(t.left!=null) s.push(t.left);
+									if(t.right!=null) s.push(t.right);
+								}
+								
+								while(!o.empty()){
+									sout(o.pop());
+								}
+							}
+		- Breadth First Search Traversal
+
+
+-- links
+https://leetcode.com/problems/implement-trie-prefix-tree/solution/

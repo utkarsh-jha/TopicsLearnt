@@ -1,0 +1,33 @@
+ENUMS
+- special Java type used to define collections of constants.
+- java 5
+- gets a valueOf method on compeiling that gives a 
+
+enum ENUMERTAION{ //class enumeration
+	HIGH (1), // public static final ENUMERTAION HIGH = new ENUMERTAION(1);
+	MEDIUM(2),
+	LOW(3);
+	
+	private final int levelCode;
+	
+	private ENUMERTAION(int levelCode){
+		this.levelCode = levelCode;
+	}
+}
+
+- enums can have an abstract method;
+enum level{
+
+	HIGH {
+		@Override
+		public String testAbstract(){
+			//implementation
+		}
+	};
+	
+	public abstract String testAbstract();
+	
+}
+
+- compile time type safety
+- we should know all the possible values at compile time;
