@@ -39,11 +39,19 @@
 		- all leaf node are at the same level
 	- degenerate 
 		- every internal node has 1 child
+- Deletion
+	- get the right most node and interchange it with the node to be deleted
+	- then delete the right most node;
 - Traversal
+	- every travesal is O(n) time complexity
+	- BFS starts from the root
+	- DFS starts from the leaves
 	- linear : one way to read data.
 	- trees
 		- Depth First Search Traversal
 			- inorder
+				- uses 
+					- in BST it gives the nodes in non decreasing order
 				- logic
 					- recursive
 						- inorder(root->left)
@@ -70,6 +78,9 @@
 					- print the tree in increasing order
 				
 			- preorder
+				- uses
+					- used to create a create a copy of a tree
+					- used to get the prefix expression of expression tree
 				- logic
 					- recursive
 						- display(root->data)
@@ -92,6 +103,8 @@
 								}
 							}
 			- postorder
+				- uses	
+					- used to delete the tree
 				- logic
 					- recursive
 						- postorder(root->left)
@@ -115,6 +128,19 @@
 							}
 		- Breadth First Search Traversal
 
+Trie : Prefix tree
+	- retrieval of key in the data set of the string
+	- application	
+		- autocomplete
+		- t9 predictive text
+		- ip routing 
+		- spell checker
+	- trie is a rooted tree
+		- NODE STRUCTURE 	
+			- has R links 
+			- has boolean flag is end
+		
+	
 
 -- links
 https://leetcode.com/problems/implement-trie-prefix-tree/solution/
