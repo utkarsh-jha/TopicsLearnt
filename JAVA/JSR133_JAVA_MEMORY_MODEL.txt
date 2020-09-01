@@ -1,0 +1,59 @@
+https://javarevisited.blogspot.com/2020/01/what-is-happens-before-in-java-concurrency.html
+https://www.logicbig.com/tutorials/core-java-tutorial/java-multi-threading/jsr166-api.html
+https://www.logicbig.com/tutorials/core-java-tutorial/java-multi-threading/util-timer.html
+
+Happens before relationship
+- is a guarantee is action performed by a thread is visible to any other action in different thread
+- how to establish
+	- single thread : each action in a single thread happens before every other action in that thread that comes later in the program order.
+	- Monitor lock rule : unlock on the monitor lock happens before ever subsequent acquiring on that lock.
+	
+Memory Model
+- Why : difficult to reason underlyinh HW or optimization JIT optimization
+	- variable visibility problem : different level of memory and flush
+	- code reordering : JIT optimizations
+- A program must be correctly synchronized to avoid code reordering and variable visibility 
+	- correctly synchronized
+		- ordered by happens before relationship
+		- has no data races using intinsic locks
+			- data race 
+				- when two conflicting access occurs that are not ordered in happens before
+					- if one of the two access is write
+					
+		- locking and unlocking cause to flush local cache variables - fixes visibility problem.
+		- provides atomicity across multiple thread access (synchronized)
+
+- final cannot be volatile (and it is thread safe immutable object)
+	- init once so JIT does not need to reload
+
+- volatile references do not guarantee availability of member variable just the references
+
+- Reordering problem : Volatile just solves the visibility sychronized allows mutual exclusion
+
+- java.util.timer
+- java.lang.ThreadLocal
+
+
+- JSR 166 Concurrent utilities
+	- robust and scalable
+	- error prone java.lang.thread
+	
+	- adde
+		- java.util.concurrent
+			- concurrent collections
+			- Executor framework
+			- Fork and Join Framework
+			- Synchronizers
+			- Concurrent random numbers
+			- Time Unit
+		- java.util.concurrent.lock
+			- lock
+				- objects alternative to intinsic lock
+				- non blocked locking
+				- backout lock
+			- condition
+				- wait/notify alternative
+				- bound to lock object
+		- java.util.concurrent.atomic
+			- adder and accumulator
+			- lock free atomic variable

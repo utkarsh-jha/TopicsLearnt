@@ -1,0 +1,24 @@
+
+- Priority - gives priority of execution. .setPriority();
+- Yield - stops momentarily to give execution to other competing threads. Thread.yield();
+- Daemon Thread: 
+	- if parent thread is 
+		- user thread
+			- child are always User thread unless specified setDaemon(true/false);
+		- Daemon thread
+			- child are daemon thread
+	- System.exit(0) JVM does not wait for daemon to stop;
+- Thread Joining
+	- calling thread waits till the called thread finished executing.
+	- overloaded with millis and nanos for wait atmost
+- Thread Interrupts
+	- Thread.join sleep and wait throws InterruptedExceptions
+	- OS level signal to stop what is currently executing and do something else.
+	
+- Thread states Thread.getState();
+	- new : not started yet
+	- runnable: running without blocking and waiting
+	- waiting: due to calls wait join 
+	- timed waiting : Thread.join(millis), sleep wait etc..
+	- blocked : from entering a synchronized block
+	- terminated : exited from the run method.

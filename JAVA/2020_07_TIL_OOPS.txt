@@ -1,0 +1,11 @@
+Object oriented programming
+
+1.  Encapsulation
+	- methods and properties under an object
+	- reusability
+2. Abstration
+	- logics are hidden only essenstials are shown
+	- reduces impact of change
+3. Inheritance 
+	- reduces redundant code		
+4. Polymorphism

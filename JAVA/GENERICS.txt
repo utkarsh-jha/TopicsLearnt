@@ -8,4 +8,43 @@ Read, write and form questions
 - added in JDK5
 - Added concrete types to General purpose classes and method
 	- operated on object before
-	
+
+- uses
+	- it allows use of Types as a prameter when defining class methods and interfaces.
+		- reusablility of code like algorithms
+	- strong type safety.
+	- prevents casting.
+- reuse the same code for different inputs
+
+- RawTypes no params for backward compatibility
+
+- Generic method
+	- auto infers the values as Var
+		Var var1 = new Var();
+		Var var2 = new Var();
+		ReferenceName.methodName(var1, var2);
+		
+	- otherwise
+		ReferenceName.<Var>methodName(var1, var2);
+
+- Bounded Type parameter
+	- extends 
+		<U extends T> can only accept the U if it extends T(if class) or implements(if interface)
+		- if we want to use multiple bonds like extends class A and imlements interfaces B,C,D then we can use
+			<U extends A & B & C> but classes must come first 
+		
+		-	Class <T>a{}
+			for classes	
+				Number l;
+				Integer i = 10;
+				l = i;
+				since integer "is a" number then we can assign
+			but a<Number> cannot be assigned to a<Integer>
+			
+			class t<T> implements List<T> {} 
+				- Collection<Integer> <- List<Integer> <- t<Integer> as long as the type is same
+- Wild cards
+	- cannot be used in	
+		- class creation
+		- generic method invocation
+		- supertype

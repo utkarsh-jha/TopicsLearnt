@@ -1,0 +1,22 @@
+
+- Java 5, Synchronization contruct
+- for threads who interact with each other
+
+- Types(out of the box ITC solutions)
+	- Cyclic Barriers
+	- Countdown Latch
+	- Semaphore
+	- Exchanger
+	- SycnhronousQueue
+	- Phases
+	
+- Cyclic Barriers 
+	- when we have fixed number of thread wait for each other before continuing execution
+	- called cyclic because it can be reused after all the waiting threads are released 
+	- calling await() makes the thread to reach the barrier point.
+	- when all the parties have called the await() method is called tripping the barrier.
+	
+	- constructor new CyclicBarrier(int parties) 
+		- parties is the number of thread that must call the await().
+	- CyclicBarrier(int parties, Runnable barrierAction)
+	

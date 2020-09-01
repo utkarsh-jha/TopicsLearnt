@@ -1,0 +1,122 @@
+♦ Java.util.Timer
+Scheduling task via timer(isDaemon, name, no args)
+	- Non periodic task : schedule(TimerTask,long/date)
+	- fixed delay : schedule(TimerTask,long/date, priod)
+	- fixed rate :  scheduleAtFixedRate(TimerTask, long; Date, long period)
+
+♦ ThreadLocal
+	- variables local to a thread
+		- raw: ThreadLocal var = new ThreadLocal(); var.set("HEY"); (String) var.get();
+		- generic ThreadLocal<String> = new ThreadLocal<>(); var.set("LOC"); var.get();
+		- intial value ThreadLocal<String> tl = new ThreadLocal<>(){@Override initialValue}
+		- supplier static factiry = ThreadLocal.withInitial(new Supplier<String>(){@Override get}) 
+	- implemented inside implements runnable class
+	- InheritableThreadLocalClass : provide the ThreadLocal variable to all the child thread created by that thread
+
+♦ Thread Signaling
+	- wait/notify/notifyAll
+		- only called by obj holding the monitor
+		class TestMonitor{
+			MonitorObj obj = new MonitorObj();
+
+			public void doWait(){
+				synchronized(obj){
+					obj.wait;
+				}
+			}
+
+			public void doNotify(){
+				sychronized(obj){
+					obj.notify();
+				}
+			}
+		}
+		- Threads may wake up without notify, notifyAll call, this is known as spurious wakeup
+			- instead of if we use while loop and this is called spin lock
+♦ Locks
+	- alternative to synchronized block but internally uses it
+	- simple lock ..Lock lock = new Lock();
+		- lock.lock();
+		- lock.unlock();
+	- Reeterant
+		- once a lock is acquired can access other locked 
+	- Read/Write lock
+		- lock.readLock().lock() : multiple read thread can read
+		- lock.writeLock().lock() : both read and write threads have to wait	
+	- stampedLock
+		- writeLock()
+		- readLock()
+		- optimistic read??
+	- why locks? provide extended abilities
+		- isHeldByCurrentThread
+		- tryLock similar to lock but dont pause the current thread
+		- isLocked
+
+♦ Semaphores
+	- java.concurrent.Semaphore is a counting semaphore
+	- usage	
+		- guard critical section
+			- s = new Semaphore(1);
+			- s.acquire();
+			- s.release();
+		- signal between threads
+			- s = new Semaphore(1);
+			- t1{s.acquire()}
+			- t2{s.release()}
+
+♦ BlockingQueue
+	- java.util.concurrent.BlockingQueue (interface)
+	- blocks when empty and when full
+	- set of methods
+		- throws exception
+			- add(o), remove(o), element()
+		- special value
+			- offer(o), peek(), poll()
+		- blocks
+			put(o), take()
+		- TimesOut
+			offer, poll
+	- cannot insert a null
+	- Types		
+		- ArrayBlockingQueue : bounded
+		- DelayQueue stores Delayed elements
+		- LinkedBlockingQueue : optionally bounded/ internally Integer.MAX_VALUE uses linkedlist
+		- priorityBlockingQueue: uses PriorityQueue ???
+		- SynchronusQueue : can only contain a single element internally
+
+♦ BlockingDequeue
+	- methods
+		- same as blocking queue with first and last as method suffix	
+	- Types:
+		- linkedBlockingDequeue	
+
+
+
+♦ ConcurrentMap
+	- concurrent put and get methods along with atomic methods
+	- interface : ConcurrentHashMap
+	- ConcurrentHashMap
+		- better than HashTable as it doesnot lock the map while reading
+		- doesnnot lock the entire map internally while writing
+
+♦ ConcurrentNavigableMap
+	 - heapMap(key) returns the view of the map which are strictly less than key
+	 - tailMap(key) greater than or equal to current key
+	 - subMap(key, key) between
+
+♦ CountDownLatch
+	- allows one or more thread to wait untill given set of operation is complete
+	- latch.await() blocks
+	- latch.countDown() once reaches zero it unblocks all the thread
+
+♦ CyclicBarrier
+
+♦ Exchanger
+	- provides a rendezvous point to exchange an object
+	- exchange(object)
+
+♦ ExecutorService
+	- 	 
+
+
+

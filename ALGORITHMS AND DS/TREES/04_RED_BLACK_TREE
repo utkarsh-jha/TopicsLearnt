@@ -1,0 +1,32 @@
+- Self balancing Red Black tree
+	- tried to keep the height as low as possible
+	- ensures O(logn) time complexity
+	- AVL tree includes very high rotation rates 
+		- RB tree does it with
+			- recoloring first
+			- minimum rotation 
+
+- Applications
+	- Map Set in cpp and TreeSet and TreeMap in java uses red black tree;
+	- CPU scheduling in linux
+		- completely fair scheduling uses it
+
+- properties
+	- BST properties
+	- every node is white and black
+	- every root node is black
+	- no adjacent red nodes
+	- total number of black nodes while traversing from any node to leaf should be equal
+
+- Insertion
+	- Insert new node and make the color Red
+	- if the newly inserted node is black then change the color to black and black height is 1;
+	- if x's uncle is 
+		- RED
+			- change the color of parent and uncle to black
+			- change grand parent color to red
+			- 
+		- BLACK
+
+
+

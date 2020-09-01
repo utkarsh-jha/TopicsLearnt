@@ -1,0 +1,44 @@
+- called Adelso-vensky and landis Tree
+- variation of BinarySearchTree
+- properties
+	- difference in the height (b) of left and right sub tree cannot be more than 1 for all node
+- Self Balancing tree.
+
+- rotations
+	- clockwise rotation right rotation 
+		- logic(node n){
+			x = n.left;
+			y = x.right;
+
+			x.right = n;
+			n.left = y;
+
+			n.height = 1 + max(height(n.left), height(n.right));
+			x.height = 1 + max(height(x.left), height(x.right));
+		}
+	- counter clockwise left rotaion 
+		- logic (n){
+			x = n.right;
+			y = x.left;
+			x.left = n;
+			n.right = y;
+		}
+
+	- whenever the property mentioned is violated
+	- cases of rotation
+		- added left of left of node n N -> L -> L
+			- b(n) > 1 and n.left.key > key
+				- return clockwise rotation (n)
+		- added right of right of node n N -> R -> R
+			- b(n) < -1 and n.right.key < key
+				- return counter clockwise rotation (n)
+		- added to the right of left of node n N->L->R
+			- b(n) > 1 and b.left.key < key
+				- n.left = count clockwise rotation (n.left);
+				- return clockwise rotation(n)
+		- added to tje left of right of node n N -> R -> L
+			- b(n) < -1 and n.right.key > key 
+				- n.right = clockwise rotation (n.right);
+				- return counter clockwise rotation(n)
+
+

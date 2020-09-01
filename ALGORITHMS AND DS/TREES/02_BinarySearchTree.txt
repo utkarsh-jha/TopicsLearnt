@@ -1,0 +1,65 @@
+22/08/2020 Binary Search Tree.
+
+Introductions
+	- it is a binary tree with properties
+	- duplicates are not allowed in BST
+Properties
+	- left sub tree keys of a node should be less than node's key  
+	- right subtree keys must be greater than nodes key
+	- left and right ub key must also be a BST. 
+
+Insertion
+	- logic(node, key){
+		if (node == null) return new Node(key);
+
+		if(node.key > key){
+			return logic(node.left, key)
+		}else if(node.key < key){
+			return logic(node.right, key)
+		}		
+		return node;
+	}
+
+	- wrapper(key){
+		root = logic(root, key)
+	}
+
+Deletion
+	- logic(node, key){
+		if(node == null) return null;
+
+		if(key>node.key){
+			// search on right
+			return logic(node.right, key)
+		}else if(key<node.key){
+			// search on left
+			return logic(node.right, key)
+		} else{
+			// found
+				//
+			if(node.left == null)
+				return node.right;
+			else if(node.right == null)
+				return node.left;
+			else{
+				n.key = minv(n.right)
+				n.right = deleteRec(n.right, n.key)
+			}
+		}
+
+
+		return node;
+	} 
+
+	-min(){
+		int minv = n.key;
+		while(n.left!=null){
+			minv = n.left.key;
+			n = n.left;
+		} 
+		return minv; 
+	}
+
+	- wrapper(key){
+		delete(root,key)
+	}

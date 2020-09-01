@@ -1,0 +1,52 @@
+https://www.logicbig.com/tutorials/core-java-tutorial/java-multi-threading/thread-wait-notify.html
+
+- Thread interference
+	- inteleaving thread producing uneven results 
+- race condition	
+	- inteleaving thread behaviour is called race condition
+- Sycnhronization
+	- in methods : each thread executing acquires and intrinsic locks to make sure one thread at a time is executing in the method;
+	
+- Intrinsic lock
+	- implicit internal entity associated with each instance of objects
+	- Synchronized method
+		- called by thread, acquires this lock. if other threads try to acquire they will be blocked
+	- sleep wont release the lock
+	- if a thread has acquried the lock then no other thread can execute any synchronized method of that object (as lock is at object level)
+	- reeterant locks as its on object once a method is entered and the lock is acquired then that thread can call any method of that object without reacquiring the lock
+		and released once the entry method is executed
+	- on static method it will be a class level lock and all the instance will be in the blocked state who try to acquire
+- Thread Starvation
+	- one or more thread are constantly blocked in favour of other threads 
+
+- Synchronized blocks
+	- as it provides more flexibility and performance boost , reduce the scope for performance
+	- do not synchronize on String and primitive type wrapper as java may optimize and reuse the reference resulting in unexpected behaviour 
+
+- Nested monitor lockout
+	- acquire locks in same order Thread A locks 1 and 2 then releases 2  , Thread B locks 1 but blocked as A has not released but A can only be released when B acquires 2 and process and releases
+
+- Deadlock
+	- occour when their are different locking orders 
+	- A locks 1 and blocked at 2 whereas B locks 2 and is waiting at lock 1
+
+- Thread Communication
+	- Object.wait() 
+		- blocks or suspend executtion untill notify or notifyAll is called
+		- throws interrupted exception
+		- releases the lock
+		- throws illegalMonitorStateException when the caller is not the owner of the lock
+		- called from synchronize
+	- Object.notify() notifyAll()
+		- also called from synchronize
+		- notify the thread waiting 
+
+- Thread starvation
+	- when a particular thread is deprived of a shared resource in favour of saveral greedy threads
+	- fairness - situation all threads are given equal opportunity 
+		- long running thread are more likely to reacquire a lock
+		- this is based on undelying CPU scheduler
+		- developer can ensure using wait notify
+		
+- live lock
+	- just like deadlock but instead of stopping the control is passed back and forth and producing no valuable output

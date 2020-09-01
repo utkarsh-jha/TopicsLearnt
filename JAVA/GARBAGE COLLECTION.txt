@@ -1,0 +1,12 @@
+
+
+- Four types are eligible for garbage collection
+	- nullifying the reference
+	- re-assigning a ref variable
+	- method local objects
+	- island of isolation (objects not referenced by any active)
+
+- we don not know when JVM runs a garbage collector
+- explicit GC call
+	- System.gc();
+	- Runtime.getRuntime().gc()

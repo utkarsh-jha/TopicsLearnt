@@ -1,0 +1,10 @@
+
+Chapter 02 - Thread Safety
+ - if multiple threads access the mutable state variable without synchronization (broken program)
+	- Dont share state variable
+	- make it immutable
+	- use synchronization whenever acessing the 
+ - OOPS concepts helps in thread safety
+	- encapsulation
+	- immutability 
+	- clear specifications of invariats
