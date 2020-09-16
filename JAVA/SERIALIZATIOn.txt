@@ -1,0 +1,12 @@
+- Used for writing state of the objects into the bytestream
+- Mainly used for Objects state to travel i.e known as marshalling
+- implement Serializable marker interface
+- ObjectOutputStream
+	- writeObject
+	- flush
+	- close
+- ObjectInputStream
+	- readObject 
+	- close
+- Transient keyword to prevent non static datamembers 
+- static values are not serialized

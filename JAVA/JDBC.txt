@@ -1,0 +1,50 @@
+JDBC - Java Database connection API
+Features
+	- DB independent
+	- not SQL independent
+	- not for non-relational databases
+
+Concept
+	- JDBC Driver
+		- for oracle oracle.jdbc.driver.OracleDriver
+		- getConnection(url, usernam, password)
+	- Statement
+		- executeQuery
+		- executeUpdate
+	- preparedStatement
+	- Callable Statement
+		- for stored procedure
+		- registerOutParameter()
+		- cs.getXXX(); getting the out parameter
+	- ResultSet
+		- each records has a set of col and same no.
+		- we can specify
+			- type
+				- ResultSet.TYPE_FORWARD_ONLY
+					- can move i
+				- ResultSet.TYPE_SCROLL_SENSITIVE
+					- sensitive to the change in the underlying data
+				- ResultSet.TYPE_SCROLL_INSENSETIVE
+					- insensitive to the change in underlying data
+					- can go next, prev, jump relative, optional
+			- concurrent
+				- type 
+					- CONCUR_READ_ONLY
+					- CONCUR_UPDATABLE
+						- some DB supports, get via metadata
+				- rs.updateXXX();
+				- rs.updateRow() -> updates database
+				- insert row
+					- rs.moveToInsertRow() -> creates a buffer
+					- rs.updateXXX();
+					- rs.insertRow()
+			- holdability
+				- not all db supports all the types (know through meta)
+				- types
+					- rs.CLOSE_CURSORS_OVER_COMMIT
+					- rs.HOLD_CURSORS_OVER_COMMIT
+	- Batch Updates
+		- addBatch()
+		- executeBatch() returns intArray()
+	- Transactions
+	- DB meta data

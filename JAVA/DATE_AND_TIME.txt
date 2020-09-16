@@ -1,0 +1,33 @@
+- Date and Time java
+	- epoch
+		- 01-January-1970 (mid night)
+		- time is relative to 
+		- day has 86400 seconds
+		- UTC cordinated universal time
+		
+		- leap seconds 27 since 1972
+		- BIPM uses UTC time using atomic clock
+		
+	- Calender
+		- solar
+			- Gregorian (leap year is divisible by 4 but not by 100 except in case of 400)
+				- used in 1582 but rules are applicable for all times
+			- julian (leap year is exactly divisible by 400)
+		- lunar
+		- unisolar
+	-API
+		- legacy API (java.util)
+			- code
+				- Date class
+					- uses 1900 as the start of the year
+						- new Date(116, 6[0-11], 8)
+				- Calendar - updated for Date (interface)
+					- Gregorian Calendar (class)
+					- same prolem with the month 0-11
+					- mutable
+				- TimeZone
+				
+		- java 8 API
+			- ISO 8601 
+				- based on proleptic gregorian calendar
+			- prevents the confusion when sharing the date and time within time zones

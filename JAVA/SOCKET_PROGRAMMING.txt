@@ -1,0 +1,7 @@
+- Used for sharing data between multiple JREs
+- Can be
+	- connection oriented
+		- Socket
+		- ServerSocket
+	- connection less
+		- DatagramSocket

@@ -1,0 +1,42 @@
+
+Naming and Directory concepts
+	- naming concepts
+		- association of objects with the name 
+			- like DNS associaties domain name to IP
+	- Syntax one must follow when naming is called naming conventions
+	- association is called binding 
+	- context is a set of name to object binding
+		- has a lookup optionation for resolving object from references
+	- directory - same as naming service but with attribute
+	
+	- user -> JNDI API -> JNDI SPI service provider interface
+JNDI
+	- java naming and directory interface
+	- independent of any specific directory service implementation
+	- Java provides
+		- LDAP, CORBA COS, RMI, DNS
+	- packages
+		- javax.naming
+			- Context(i)
+				- lookup
+				- listBindings
+				- 
+			- InitialContext
+			- NamingException
+		- javax.naming.directory
+		- javax.naming.ldap
+		- javax.naming.event
+		- javax.naming.spi
+	- Applications 
+		- multiple environments, eg data source, configure it in jboss is the best solution
+- LDAP	
+	- phone book type
+	- write once read many times
+	- fast reads over large data sets
+	- slower add/delete/update	
+	- LDAP is a type of optimization layer over DB 
+	- and the data to be accessed is small
+	
+- Context 
+	- allows to perform operations on naming service 
+	- must have for JNDI

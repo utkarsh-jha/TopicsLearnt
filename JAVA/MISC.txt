@@ -1,0 +1,11 @@
+- unary predicate
+	- 
+	
+- Auto Boxing
+	- auto conversion that a java compiler makes when distinguishing between the primitive and the wrapper class
+	
+- String 
+
+- String Bulder
+
+- String Buffer

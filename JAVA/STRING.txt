@@ -1,0 +1,17 @@
+
+- JVM uses a String Pool to store String objects
+- String is immutable
+	- so a sequence of string is shared hence storing only one string literal in the pool 
+	- new String("") => store in the heap space reserved by the JVM Creates string object
+	- String = "val" creates StringLiteral
+		- is "val" available?? 
+			- yes : return the same object
+			- no : create and return
+
+- make your own immutable class
+	- make the class final
+	- make all the variable private
+	- no setter methods
+	- make all the mutable instances final so that it can only be assigned one 
+	- perform deep copy
+	- return a clone instead of object reference

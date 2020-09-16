@@ -1,0 +1,8 @@
+- ArrayLists	
+	- default capacity 10
+	
+	- constructor(int)
+	- contructor empty
+	- add() boolean
+		- ensureCapacityInternal ()
+		- element[size++] = e;

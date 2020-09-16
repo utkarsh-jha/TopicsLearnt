@@ -1,0 +1,51 @@
+https://www.oodesign.com/open-close-principle.html
+- Design Principles
+	-  Types
+		- Single Responsibility Principle
+			- there must be only one reason to change a class
+		
+		- Open closed Principles
+			- Open for extension
+			- Closed for modification
+			- Decorator pattern help us achieve (Factory Method/ Observer Pattern may help)
+			- adds extra layer of abstraction
+		- Liskov Substitution Problem
+		
+			- Derived class must be completely substitutable with Base types
+		
+		- Interface Segregation Principle
+			- client should not depend on interface they dont use
+			- increases the flexibility
+		
+		- Dependency Inversion Principles
+			- Abstraction should not depend on details, details should depend on abstraction
+			- High level modules should not depend on low level modules 
+			- High level module --> Abstraction Layer --> Low level module
+			- Template pattern
+			
+- Design Patterns Types
+	- Creational
+		- used when creating an object
+			ref = new Object()
+		- types
+			- Factory
+				- use the interface or abstract class for defining the object and let the subclass decide which to instantiate
+				- constructs single objects
+				- aka virtual Constructor
+			- Abstract Factory
+				- provides an interface for creation of related or dependent objects without concrete class
+				- constructs multiple object
+				- also known as a KIT	
+					
+			- Singleton
+				- common entry point
+				- heavy object
+				- when we want only one instance
+				- when 
+					- serializable singleton then must have readResolve
+			- Object Pool
+			- Prototype
+			- Builder
+				- helps you create complex objects step by step
+	- Structural
+	- Behavioural

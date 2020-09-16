@@ -1,0 +1,91 @@
+
+- hierarchy
+	- iterable(i) <- collection(i)
+	- collection(i) <- List(i)
+	- collection(i) <- Set(i)
+	- collection(i) <- Queue(i)
+	- Set(i) <- SortedSet(i)
+	- SortedSet(i) <- NavigableSet(i)
+	- Queue(i) <- Deque(i)
+	
+	
+	- Map(i) <- SortedMap(i)
+	- SortedMap(i) <- NavigableMap(i)
+
+- Iterator /Enumerator
+	- representing an object capable of iterating through 
+	- methods
+		- hasNext()
+		- forEachRemaining(Consumer Action)
+		- remove()
+		- next()
+	- Obtain
+		- Collection has method iterator() returns iterator
+	- adding while iterating "may"(get the conditions) cause concurrent modification exception
+	- removing wont cause the exception
+	- ListIterator
+		- bi-directional iterator
+		- method
+			- next
+			- previous
+			- add
+			- remove
+			- hasNext/hasPrevious
+			- set
+- Iterable
+	- methods	
+		- Iterator<T> iterator()
+		- Spliterator<T> spliterator()
+		- forEach(Consumer<? Super T> action)
+	- iteration
+		- for
+		- forEach
+		- iterator
+	- performance
+		- for-each calls iterator everytime 
+- Spliterators
+
+
+- Collection
+	- interface
+	- methods 
+		- size
+		- isEmpty
+		- contains
+		- iterator
+		- toArray, <t> toArray
+		- add
+		- remove
+		- containsAll
+		- addAll
+		- removeAll
+		- removeIf
+		- retainAll
+		- clear()
+		- equals
+		
+- List
+	- props
+		- ordered
+		- allow duplicates
+	- method
+		- replaceAll	
+	- impl
+		- arraylist
+		- linkedList
+		- Vector
+		- Stack
+- Collections 
+	- method
+		- addAll
+		- binarySearch
+		- copyAll
+		- reverse
+		- shuffle
+		- replace
+		- min 
+		- max
+		- sort
+		- unmodifyableSet
+
+- Properties

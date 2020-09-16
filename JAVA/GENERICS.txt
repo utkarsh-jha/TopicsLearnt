@@ -48,3 +48,23 @@ Read, write and form questions
 		- class creation
 		- generic method invocation
 		- supertype
+	- used in references
+
+- if the parameter is consumer typer then we use super
+- if parameter is producer then we use extends
+
+- Type erasure: 
+	- strict type checking at complile time java applies type erasure
+		- convert type parameters to the bounded type or Object if unbounded
+		- implicit type casts
+		- bridge methods
+
+- Restriction 
+	- no support for primitive types .Autoboxing
+	- cannot instantiate type variable (newInstance)
+	- cannot define static type paramters (conufsion amongst all the implemtations)
+	- cannot use instance of (type erasure)
+	- array of parameterized type is not allowed
+	- cannot override generic with parameters (type erasure will make the parameters as  objects)
+
+	
