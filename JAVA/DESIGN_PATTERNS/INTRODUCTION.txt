@@ -3,16 +3,17 @@ https://www.oodesign.com/open-close-principle.html
 	-  Types
 		- Single Responsibility Principle
 			- there must be only one reason to change a class
-		
+			- Controller is the best example of single responsibility
 		- Open closed Principles
 			- Open for extension
 			- Closed for modification
 			- Decorator pattern help us achieve (Factory Method/ Observer Pattern may help)
 			- adds extra layer of abstraction
+			
 		- Liskov Substitution Problem
-		
 			- Derived class must be completely substitutable with Base types
-		
+			- instance should not throw unsupported exception 
+			
 		- Interface Segregation Principle
 			- client should not depend on interface they dont use
 			- increases the flexibility
@@ -43,9 +44,20 @@ https://www.oodesign.com/open-close-principle.html
 				- when we want only one instance
 				- when 
 					- serializable singleton then must have readResolve
+			
 			- Object Pool
+			
 			- Prototype
+			
 			- Builder
 				- helps you create complex objects step by step
+				- too many arguments
+				- telescoping the constructor solves the problem 
+				- how to	
+					- class
+					- decide required params
+					- decide optional params
+					- create a satic inner builder 
+					-
 	- Structural
 	- Behavioural

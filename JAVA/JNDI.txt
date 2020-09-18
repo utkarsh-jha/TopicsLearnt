@@ -19,8 +19,9 @@ JNDI
 		- javax.naming
 			- Context(i)
 				- lookup
-				- listBindings
-				- 
+				- bind
+				- unbind
+				- rebind
 			- InitialContext
 			- NamingException
 		- javax.naming.directory
