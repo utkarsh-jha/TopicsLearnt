@@ -1,0 +1,70 @@
+
+- Alternative to Anonymous inner class without the boiler plate code
+- Implementation of lambda expression
+	(parameter list) -> {Method Body}
+- used where logic is functional rather than object oriented
+	- not a pure OOP because of primitive types.
+	- Static members can be called without object instantiation
+	- Functinal helps
+		- in expressing what you want to do rather than how you eant it to be done
+		
+- What are lambda expression compiled to
+	- compiler will generate method with lambda inside (desugar)
+		- java -p  className
+			
+			-  lambda$<methodName>$<count>()
+		- run time class Name
+			- <className>$$Lambda$1 viz not the type of class the implemented 
+			- seems like a proxy like class is generated
+- capturing vs non-capturing lambdas
+	- capturing
+		- uses instance variables
+		- uses variables from outsides scope (final/ effectively Final)
+	- non-capturing
+		- does not use any variable 
+- Functional interfaces
+	- java.util.function
+		- Function<T, R>
+			- represent an interface that accepts an argument and produces a result
+				- R apply(T t) 
+		- Predicate<T>
+			- Evaluates to boolean
+			- methods
+				- boolean test(T t)
+				- and 
+				- or 
+				- negate
+			- primitive predicates
+		- Consumer <T>
+			- takes some value and returns nothinh
+			- methods
+				- accept()
+				- andThen
+			- primitiveConsumer
+		- Supplier
+			- takes no argument but produces a result
+- Lambdas are more like Inline values
+- passing behaviour as a prameters
+
+
+- Method References
+
+- Functional programming
+	- functions are the first class objects
+		- create an instance of a functional
+		- variable can point to it
+		- can be passed to other methods
+	- pure functions
+		- that doesnot affect the state and is solely based on the input
+	
+	- Higher order function
+		- takes a function as a parameter
+		- produces a function as a result
+
+
+
+- Effectively final 
+	- whose values never change during 
+	- even after the lambda expression values cannot change
+Explore
+- Thanks to lambdas, we can now do lazy evaluations. When sending a lambda expression as a method argument, the java compiler will evaluate it when it's called in the method. This is different from normal method arguments, which are evaluated straight away.

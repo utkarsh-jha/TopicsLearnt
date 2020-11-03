@@ -1,0 +1,12 @@
+- JAVA8 Features
+	- Lambda expressions and method references
+	- streams
+	- Functional Interfaces
+	- Default and Static method inside an interface
+	- Arrays improvements !!
+	- Repeating annotations !!
+	- Type annotations !!
+	- Date Time api !!
+	- Explicit receiver parameter !!
+
+https://www.logicbig.com/tutorials/core-java-tutorial/java-8-enhancements
